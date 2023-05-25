@@ -34,7 +34,10 @@ export default function MovieModal({open, onClose, post}){
 
 
     const handelFavorite = async (movie) => {
-        await writeFavorite(user?.uid, movie?.id)
+        if(user)
+            await writeFavorite(user?.uid, movie?.id)
+        else
+            return
     }
 
     const handleUnfavorite = async (movie) => {
